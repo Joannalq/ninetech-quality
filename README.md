@@ -64,13 +64,14 @@ cd test_case
 ```
 
 ```
-pytest -v -s --html=./reports/report.html --self-contained-html test_chrome.py
+pytest -v -s --html=./results/report.html --self-contained-html test_chrome.py
 ```
 
-note: --html=./reports/report.html: report.html could be changed to any other file name
+note: --html=./results/report.html: report.html could be changed to any other file name
 
 ### Output Files
 
-After completing the test, the screenshot for step 2 and step 5 will be saved in the images sub-folder（of the test_case folder).
+After completing the test, the results sub-folder of the test_case folder will include:
 
-the report (html file) will be saved in the reports sub-folder (of the test_case folder).
+- the screenshot for step 2 and step 5
+- results as html file

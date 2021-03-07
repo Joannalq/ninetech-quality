@@ -37,7 +37,7 @@ class TestCase():
 
         # save all screen shots
         for i in range(len(screenshots)):
-            with open('./images/step2.png', "wb") as f:
+            with open('./results/step2.png', "wb") as f:
                 f.write(screenshots[i])
 
     # after step3 scroll down to the end of the page. step 5: verify if the subscription pop up desappears on the same article
@@ -62,5 +62,5 @@ class TestCase():
 
         # save all screen shots
         for i in range(len(screenshots)):
-            with open('./images/step5.png', "wb") as f:
+            with open('./results/step5.png', "wb") as f:
                 f.write(screenshots[i])
