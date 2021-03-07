@@ -14,4 +14,4 @@
 
 - 3-8 Enter the special character only like "#" and it could show some result in the drop-down menu.
 
-- 3-9 Enter the company's name correctly and then click the search button. it cannot enter the company's news page. It only works when click the the result from drop-down menu, which need to confirm with client whether it is their requirement.
+- 3-10 Enter the company's name correctly and then click the search button. it cannot enter the company's news page. It only works when click the the result from drop-down menu, which need to confirm with client whether it is their requirement.

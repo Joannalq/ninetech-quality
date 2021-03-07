@@ -24,9 +24,11 @@
 
 - 3-8 After entering the search content and add space or special characters. it should not influent the search result.
 
-- 3-9 Enter the correct company name or ASX code and then click the "Search" button. It should link to the right page.
+- 3-9 After entering valid company name or ASX code and the correct results show up in the drop-down menu. Check clicking on the result will correctly open the page related to that company.
 
-- 3-10 Enter the correct company name or ASX code and then press "Enter" button to search. It should link to the right page.
+- 3-10 Enter the correct company name or ASX code and then click the "Search" button. It should link to the right page.
+
+- 3-11 Enter the correct company name or ASX code and then press "Enter" button to search. It should link to the right page.
 
 4, Check the selection of companies that are displayed in the section matches the requirements of AFR.
 
