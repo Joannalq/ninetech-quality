@@ -12,19 +12,13 @@ def checkSpecialCharacter(strValue):
     else:
         return float(strValue.replace('px', ''))
 
-@pytest.mark.usefixtures("driver_init")
-class BasicTest:
-    pass
 
-class TestCaseChrome():
+class TestCase():
     @pytest.fixture()
     def setup(self):
         self.driver = webdriver.Chrome(
             "D:/webdriver/chromedriver_win32/chromedriver.exe")
         self.driver.maximize_window()
-        self.driver.get(
-            "https://www.afr.com/policy/foreign-affairs/capability-edge-and-keeping-south-china-sea-open-crucial--christopher-pyne-20180924-h15rq9")
-
         yield
         self.driver.close()
 
@@ -32,7 +26,9 @@ class TestCaseChrome():
     def test_bottom(self, setup):
         screenshots = []
 
-        
+        self.driver.get(
+            "https://www.afr.com/policy/foreign-affairs/capability-edge-and-keeping-south-china-sea-open-crucial--christopher-pyne-20180924-h15rq9")
+
         # Check if the subscription prompt is popped up from the bottom of the page based on the bottom
         subscription = self.driver.find_elements_by_class_name('Y7Y5d')[0]
         bottom = subscription.value_of_css_property('bottom')
@@ -48,8 +44,8 @@ class TestCaseChrome():
     def test_disappear(self, setup):
         screenshots = []
 
-        # self.driver.get(
-        #     "https://www.afr.com/policy/foreign-affairs/capability-edge-and-keeping-south-china-sea-open-crucial--christopher-pyne-20180924-h15rq9")
+        self.driver.get(
+            "https://www.afr.com/policy/foreign-affairs/capability-edge-and-keeping-south-china-sea-open-crucial--christopher-pyne-20180924-h15rq9")
 
         # step 3: scroll down the complete body height:
         self.driver.execute_script(
@@ -68,4 +64,3 @@ class TestCaseChrome():
         for i in range(len(screenshots)):
             with open('./results/step5.png', "wb") as f:
                 f.write(screenshots[i])
-
