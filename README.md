@@ -32,6 +32,10 @@ Step 2: Plug-in installation: For Windows system, run the Command Prompt. Then e
  pip install pytest-html
 ```
 
+```
+pip install pytest-xdist
+```
+
 ### Setting up WebDriver for Chrome
 
 Step 1: Please download the version of Selenium webDriver (ChromeDriver) which is compatible to the Google Chrome browser installed on your computer.

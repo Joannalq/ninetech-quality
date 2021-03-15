@@ -16,11 +16,10 @@ def checkSpecialCharacter(strValue):
 class BasicTest:
     pass
 
-class TestCaseChrome():
+class TestCaseFireFox():
     @pytest.fixture()
     def setup(self):
-        self.driver = webdriver.Chrome(
-            "D:/webdriver/chromedriver_win32/chromedriver.exe")
+        self.driver = webdriver.Firefox(executable_path= "D:/webdriver/geckodriver-v0.29.0-win64/geckodriver.exe")
         self.driver.maximize_window()
         self.driver.get(
             "https://www.afr.com/policy/foreign-affairs/capability-edge-and-keeping-south-china-sea-open-crucial--christopher-pyne-20180924-h15rq9")
@@ -29,27 +28,28 @@ class TestCaseChrome():
         self.driver.close()
 
     # step 2: Check if the subscription prompt is popped up from the bottom of the page
-    def test_bottom(self, setup):
+    def test_bottom(self,setup):
         screenshots = []
-
+        self.driver.get("https://www.afr.com/policy/foreign-affairs/capability-edge-and-keeping-south-china-sea-open-crucial--christopher-pyne-20180924-h15rq9")
         
         # Check if the subscription prompt is popped up from the bottom of the page based on the bottom
         subscription = self.driver.find_elements_by_class_name('Y7Y5d')[0]
         bottom = subscription.value_of_css_property('bottom')
+        print(bottom)
         screenshots.append(self.driver.get_screenshot_as_png())
-        assert checkSpecialCharacter(bottom) == 0
+        assert checkSpecialCharacter(bottom) <= 0
 
         # save all screen shots
         for i in range(len(screenshots)):
-            with open('./results/step2.png', "wb") as f:
+            with open('./results/step2-ff.png', "wb") as f:
                 f.write(screenshots[i])
 
     # after step3 scroll down to the end of the page. step 5: verify if the subscription pop up desappears on the same article
-    def test_disappear(self, setup):
+    def test_disappear(self,setup):
         screenshots = []
 
-        # self.driver.get(
-        #     "https://www.afr.com/policy/foreign-affairs/capability-edge-and-keeping-south-china-sea-open-crucial--christopher-pyne-20180924-h15rq9")
+        self.driver.get(
+            "https://www.afr.com/policy/foreign-affairs/capability-edge-and-keeping-south-china-sea-open-crucial--christopher-pyne-20180924-h15rq9")
 
         # step 3: scroll down the complete body height:
         self.driver.execute_script(
@@ -61,11 +61,12 @@ class TestCaseChrome():
         # step 5: Verify if the subscription pop up disappears on the same article
         subscription = self.driver.find_elements_by_class_name('Y7Y5d')[0]
         bottom2 = subscription.value_of_css_property('bottom')
+        print(bottom2)
         screenshots.append(self.driver.get_screenshot_as_png())
         assert checkSpecialCharacter(bottom2) < 0
 
         # save all screen shots
         for i in range(len(screenshots)):
-            with open('./results/step5.png', "wb") as f:
+            with open('./results/step5-ff.png', "wb") as f:
                 f.write(screenshots[i])
 
